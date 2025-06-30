@@ -1,0 +1,15 @@
+[Unit]
+Description=The collectd System Statistics Daemon
+After=network.target
+
+[Service]
+ExecStart=/opt/collectd/sbin/collectd -f -C /opt/collectd/etc/collectd.conf
+Restart=always
+User=www-data
+Group=www-data
+StandardOutput=journal
+StandardError=journal
+Environment="HOME=/home/www-data"
+
+[Install]
+WantedBy=multi-user.target

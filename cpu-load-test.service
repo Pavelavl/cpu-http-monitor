@@ -1,0 +1,16 @@
+[Unit]
+Description=CPU Load Generator
+After=network.target
+
+[Service]
+ExecStart=/opt/cpu_load_test/cpu_load_test
+Restart=always
+User=root
+Group=root
+StandardOutput=null
+StandardError=null
+Nice=19
+CPUSchedulingPolicy=idle
+
+[Install]
+WantedBy=multi-user.target
